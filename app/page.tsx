@@ -1,29 +1,30 @@
+import Hero from './components/Hero';
+import { IoMdHome } from "react-icons/io";
+import { FloatingDock } from './components/ui/FloatingDock';
+import { GoTerminal } from "react-icons/go";
+import { FaUser } from "react-icons/fa";
 
-import axios from 'axios';
-
-async function getUserDetails(){
-  await new Promise(resolve=>setTimeout(resolve,5000));
-    const response={"FirstName":"Pradum","SecondName":"Tiwari","email":"satendarpradum@gmail.com"}
-    return response;
-}
-
-export default async function Home() {
-  
-  const userData = await getUserDetails();
-  const res = await fetch('http://localhost:3000/api/hello');
-  const data=await res.json();
-
+export default function Home() {
   return (
-    <div className="flex flex-col justify-center h-screen">
-      <div className="flex justify-center">
-        <div className="border p-8 rounded">
-          <div>
-            Name: {userData?.FirstName}
-          </div>
-          {userData?.email}
-        </div>
-        <div>{data.message}</div>
+    <main className="relative w-full h-screen overflow-hidden bg-black">
+      
+      {/* Full-Page Background Grid */}
+      <div className="fixed inset-0 w-full h-full bg-grid-pattern z-0"></div>  
+
+      {/* Floating Dock - Closer to Top */}
+      <div className="absolute top-20 left-1/2 transform -translate-x-1/2 z-50 scale-125">
+        <FloatingDock items={[
+          { title: "Home", icon: <IoMdHome />, href: '/' },
+          { title: 'Product', icon: <GoTerminal />, href: '#' },
+          { title: 'About', icon: <FaUser />, href: '#' }
+        ]} />
       </div>
-    </div>
+
+      {/* Hero Section - Positioned at 40% height */}
+      <div className="absolute top-2/5 w-full z-10 text-center">  
+        <Hero />
+      </div>
+
+    </main>
   );
 }
