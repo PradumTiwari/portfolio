@@ -2,9 +2,10 @@ import { Spotlight } from "./ui/Spotlight";
 import { TextGenerateEffect } from "./ui/TextGenerateEffect";
 import ButtonM from "./ui/ButtonM";
 
+
 const Hero = () => {
   return (
-    <div className="relative min-h-screen w-screen flex flex-col items-center justify-center pb-20 pt-24 overflow-hidden">
+    <div className="relative   min-h-screen w-screen flex flex-col items-center justify-center pb-20 pt-24 overflow-hidden">
       {/* Background Spotlights */}
       <div className="absolute inset-0 w-full h-full pointer-events-none">
         {/* Adjusted left spotlight to extend more left */}
@@ -22,13 +23,14 @@ const Hero = () => {
 
       {/* Content Section */}
       <div className=" relative z-10 max-w-[89vw] md:max-w-2xl lg:max-w-[60vw] flex flex-col items-center text-center -top-30">
-        <h2 className="uppercase tracking-widest text-xs text-blue-100 max-w-80">Dynamic Web Page</h2>
-        <TextGenerateEffect className="text-[40px] md:text-5xl lg:text-6xl" words="Description Of The Work" />
+        <h2 className="uppercase tracking-widest text-sm text-blue-100 max-w-100">    Yo, I’m Pradum — 22, typing things till they work</h2>
+        <TextGenerateEffect className="text-[50px] md:text-10xl lg:text-[80px]" words="Building Solutions Not Just Projects." />
         <p className="md:tracking-wider mb-4 text-sm md:text-lg lg:text-2xl">
-          Hi, I'm Pradum Tiwari
+      
         </p>
-        <a href="#"><ButtonM title="Contact Me" /></a>
+        <a href="#contact"><ButtonM title="Contact Me" /></a>
       </div>
+  
     </div>
   );
 };
